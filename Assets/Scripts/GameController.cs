@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     private CubePos nowCube = new CubePos(0, 1, 0);
     public float cubeChangePlaceSpeed = 0.5f;
     public Transform cubeToPlace;
+    private float camMoveToYPosition, camMoveSpeed = 2f;
 
     public GameObject cubeToCreate, allCubes;
     public GameObject[] canvasStartPage;
@@ -22,23 +23,29 @@ public class GameController : MonoBehaviour
         new Vector3(-1, 0, 0),
         new Vector3(0, 1, 0),
         new Vector3(0, 0, 1),
+        new Vector3(0, 0, -1),
         new Vector3(1, 0, 1),
         new Vector3(-1, 0, -1),
         new Vector3(-1, 0, 1),
         new Vector3(1, 0, -1),
     };
 
+    private int prevCountMaxHorizontal;
+    private Transform mainCam;
     private Coroutine showCubePlace;
 
     private void Start()
     {
+        mainCam = Camera.main.transform;
+        camMoveToYPosition = 5.9f + nowCube.y - 1f;
+
         allCubesRb = allCubes.GetComponent<Rigidbody>();
         showCubePlace = StartCoroutine(ShowCubePlace());
     }
 
     private void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && cubeToPlace != null && !EventSystem.current.IsPointerOverGameObject())
+        if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && cubeToPlace != null && allCubes != null && !EventSystem.current.IsPointerOverGameObject())
         {
 #if !UNITY_EDITOR
             if (Input.GetTouch(0).phase != TouchPhase.Began)
@@ -62,6 +69,7 @@ public class GameController : MonoBehaviour
             allCubesRb.isKinematic = false;
 
             SpawnPositions();
+            MoveCameraChangeBg();
         }
 
         if(!isLose && allCubesRb.velocity.magnitude > 0.1f)
@@ -70,6 +78,10 @@ public class GameController : MonoBehaviour
             isLose = true;
             StopCoroutine(showCubePlace);
         }
+
+        mainCam.localPosition = Vector3.MoveTowards(mainCam.localPosition,
+            new Vector3(mainCam.localPosition.x, camMoveToYPosition, mainCam.localPosition.z),
+            camMoveSpeed * Time.deltaTime);
     }
 
     IEnumerator ShowCubePlace()
@@ -111,8 +123,13 @@ public class GameController : MonoBehaviour
             positions.Add(new Vector3(nowCube.x, nowCube.y, nowCube.z - 1));
         }
 
-        cubeToPlace.position = positions[UnityEngine.Random.Range(0, positions.Count)];
-        Debug.Log(positions.Count);
+        if (positions.Count > 1)
+            cubeToPlace.position = positions[UnityEngine.Random.Range(0, positions.Count)];
+        else if (positions.Count == 0)
+            isLose = true;
+        else
+            cubeToPlace.position = positions[0];
+        //Debug.Log(positions.Count);
     }
 
     private bool IsPositionEmpty(Vector3 targetPos)
@@ -128,6 +145,32 @@ public class GameController : MonoBehaviour
                 return false;
         }
         return true;
+    }
+
+    private void MoveCameraChangeBg()
+    {
+        int maxX = 0, maxY = 0, maxZ = 0, maxHor;
+
+        foreach (Vector3 pos in allCubePositions) 
+        {
+            if (Mathf.Abs(Convert.ToInt32(pos.x)) > maxX)
+                maxX = Convert.ToInt32(pos.x);
+
+            if (Convert.ToInt32(pos.y) > maxY)
+                maxY = Convert.ToInt32(pos.y);
+
+            if (Mathf.Abs(Convert.ToInt32(pos.z)) > maxZ)
+                maxZ = Convert.ToInt32(pos.z);
+        }
+
+        camMoveToYPosition = 5.9f + nowCube.y - 1f;
+
+        maxHor = maxX > maxZ ? maxX : maxZ;
+        if(maxHor % 3 == 0 && prevCountMaxHorizontal != maxHor)
+        {
+            mainCam.localPosition -= new Vector3(0, 0, 2.5f);
+            prevCountMaxHorizontal = maxHor;
+        }
     }
 }
 
