@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1600
     height: 817
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 579, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 122
+  controlID: 123
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,7 +338,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6ce3ffffece8ffffd8ebffff26fbffffb24c00006a4d0000
+      m_ExpandedIDs: 22fbffffb23d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -453,22 +453,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Music
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/Music
+  - Assets/Scenes
   m_LastFoldersGridSize: 60
   m_LastProjectPath: E:\Unity\Cube Tower
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 30}
-    m_SelectedIDs: b0540000
-    m_LastClickedID: 21680
-    m_ExpandedIDs: 00000000263f000000ca9a3b
+    m_SelectedIDs: 6a3f0000
+    m_LastClickedID: 16234
+    m_ExpandedIDs: 00000000583f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,7 +496,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000263f0000
+    m_ExpandedIDs: 00000000583f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -627,9 +627,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.726323, y: -16.953209, z: 41.784733}
+    m_Target: {x: -2.2854247, y: -5.1068406, z: 46.465076}
     speed: 2
-    m_Value: {x: 7.726323, y: -16.953209, z: 41.784733}
+    m_Value: {x: -2.2854247, y: -5.1068406, z: 46.465076}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -676,20 +676,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.20235261, y: -0.071323015, z: 0.014778286, w: -0.9766019}
+    m_Target: {x: -0.09763128, y: 0.021492736, z: -0.0021088172, w: -0.9949894}
     speed: 2
-    m_Value: {x: -0.2023523, y: -0.0713229, z: 0.014778263, w: -0.9766004}
+    m_Value: {x: -0.09763118, y: 0.021492714, z: -0.002108815, w: -0.9949883}
   m_Size:
-    m_Target: 26.786121
+    m_Target: 28.639402
     speed: 2
-    m_Value: 26.786121
+    m_Value: 28.639402
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1
-    m_SpeedNormalized: 0.5
+    m_Speed: 1.005
+    m_SpeedNormalized: 0.49999997
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1

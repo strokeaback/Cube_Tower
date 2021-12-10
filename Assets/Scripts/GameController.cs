@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour
@@ -10,6 +11,8 @@ public class GameController : MonoBehaviour
     public float cubeChangePlaceSpeed = 0.5f;
     public Transform cubeToPlace;
     private float camMoveToYPosition, camMoveSpeed = 2f;
+
+    public Text scoreTxt;
 
     public GameObject cubeToCreate, allCubes, vfx;
     public GameObject[] canvasStartPage;
@@ -39,6 +42,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        scoreTxt.text = "<size=40>best:</size><color> " + PlayerPrefs.GetInt("score") + "</color>\n<size=26>now:</size><color>0</color>";
         toCameraColor = Camera.main.backgroundColor;
         mainCam = Camera.main.transform;
         camMoveToYPosition = 5.9f + nowCube.y - 1f;
@@ -175,6 +179,13 @@ public class GameController : MonoBehaviour
             if (Mathf.Abs(Convert.ToInt32(pos.z)) > maxZ)
                 maxZ = Convert.ToInt32(pos.z);
         }
+
+        maxY--; 
+
+        if (PlayerPrefs.GetInt("score") < maxY)
+            PlayerPrefs.SetInt("score", maxY);
+
+        scoreTxt.text = "<size=40>best:</size><color> " + PlayerPrefs.GetInt("score") + "</color>\n<size=26>now:</size><color> " + maxY + " </color>";
 
         camMoveToYPosition = 5.9f + nowCube.y - 1f;
 
