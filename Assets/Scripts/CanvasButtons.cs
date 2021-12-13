@@ -27,6 +27,20 @@ public class CanvasButtons : MonoBehaviour
         Application.OpenURL("https://www.instagram.com/nurali.tasshabayev/");
     }
 
+    public void LoadShop()
+    {
+        if (PlayerPrefs.GetString("music") != "No")
+            GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene("Shop");
+    }
+
+    public void CloseShop()
+    {
+        if (PlayerPrefs.GetString("music") != "No")
+            GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene("Main");
+    }
+
     public void MusicWork()
     {
         // сейчас музыка выключена и ее нужно включить

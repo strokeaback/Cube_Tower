@@ -1611,8 +1611,17 @@ MonoBehaviour:
   cubeChangePlaceSpeed: 0.5
   cubeToPlace: {fileID: 10280792}
   scoreTxt: {fileID: 1079197427}
-  cubeToCreate: {fileID: 8534645227966620637, guid: f7daec58dc8852046ac46b27c0bed4a0,
-    type: 3}
+  cubesToCreate:
+  - {fileID: 8534645227966620637, guid: f7daec58dc8852046ac46b27c0bed4a0, type: 3}
+  - {fileID: 3568526031500103273, guid: 37c12e42806dcdc4c88ce807e2551734, type: 3}
+  - {fileID: 7229601124533930102, guid: 7b691f1764c22f140aa8ba1b71c82197, type: 3}
+  - {fileID: 3907834895846765311, guid: 9a15319cab921cd4e818c1aa65d6f929, type: 3}
+  - {fileID: 2310779439230544783, guid: 05d734a60613f7c4881d69ea5b996d95, type: 3}
+  - {fileID: 2145885833854532150, guid: 3754a1be6b24349439a6a6d999b4c4dd, type: 3}
+  - {fileID: 5136702966134842404, guid: fc043ced86554fc48bd44a0be9200a39, type: 3}
+  - {fileID: 5967653782443115638, guid: 26e67c0045262c24a851cd2ecea952a4, type: 3}
+  - {fileID: 4318204573106782762, guid: 8bc0a2731490fea4688504353fd4c0ee, type: 3}
+  - {fileID: 2463494953340971487, guid: 21c165a6fd11ffd47b34a872fbaf2d9b, type: 3}
   allCubes: {fileID: 2043430614}
   vfx: {fileID: 100748, guid: cd4d7020429cde74db076ffa72495419, type: 3}
   canvasStartPage:
@@ -1877,7 +1886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1637129791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1637129789}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: LoadShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1637129791
 MonoBehaviour:
   m_ObjectHideFlags: 0
